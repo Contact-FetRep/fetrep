@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+<div class="container">
+    <div id="resultsDiv" class="row">
+        <div class="col arrow arrow_up">
+            <input class="" id="upVote" type="image" src="images/upArrow.png" alt=""/>
+        </div>
+        <div class="col arrow arrow_down">
+            <input class="" id="downVote" type="image" src="images/downArrow.png" alt=""/>
+        </div>
+        <div class="col">
+            <label for="reputationScoreElement">Reputation Score:</label>
+        </div>
+        <div class="col ">
+            <input class="vote_box" readonly type="text" id="reputationScoreElement">
+        </div>
+        <div class="col">
+            <label for="totalVotesElement">Total Votes:</label>
+        </div>
+        <div class="col ">
+            <input class="vote_box" readonly type="text" id="totalVotesElement">
+        </div>
+    </div>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>

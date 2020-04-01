@@ -1,0 +1,35 @@
+body{
+    background-color: #252525;
+}
+
+h3{
+    color: #cc3300;
+    font-size: 170%;
+    text-align: center;
+}
+
+h4{
+    color: #cc3300;
+    font-size: 150%;
+}
+p{
+    color: #FFFFFF;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 130%;
+}
+.bottom_page{
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    background-color: #252525;
+}

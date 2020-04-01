@@ -1,0 +1,45 @@
+{
+  "name": "FetRep Chrome Extension",
+  "version": "1.0",
+  "description": "Fetrep Chrome Browser Extension",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "*://*.fetrep.com/"
+  ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://fetlife.com/users/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/fetrep16.png",
+      "32": "images/fetrep32.png",
+      "48": "images/fetrep48.png",
+      "128": "images/fetrep128.png"
+    }
+  },
+  "icons": {
+    "16": "images/fetrep16.png",
+    "32": "images/fetrep32.png",
+    "48": "images/fetrep48.png",
+    "128": "images/fetrep128.png"
+  },
+  "manifest_version": 2
+}
