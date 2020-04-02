@@ -12,6 +12,19 @@ h4{
     color: #cc3300;
     font-size: 150%;
 }
+
+h6{
+    color: #FFFFFF;
+    font-size: 120%;
+}
+
+li{
+    color: #FFFFFF;
+    font-size: 130%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 p{
     color: #FFFFFF;
     text-align: justify;
@@ -39,4 +52,19 @@ a{
     padding-left: 3rem;
     padding-top: 1rem;
     background-color: #252525;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 3rem;
+}
+
+.col{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.remark{
+    color: #cc3300;
 }

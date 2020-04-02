@@ -4,7 +4,9 @@ let upVoteButton = document.getElementById('upVote');
 let downVoteButton = document.getElementById('downVote');
 
 function makeVote(voteDirection) {
-    chrome.runtime.sendMessage({vote_direction: voteDirection});
+    if (voteDirection) {
+        chrome.runtime.sendMessage({vote_direction: voteDirection});
+    }
 }
 
 function getVotes() {
@@ -33,15 +35,17 @@ downVoteButton.onclick = function (element) {
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        let votesList = request.vote_list;
-        if (votesList) {
-            let totalVotes = votesList.length;
-            let reputationScore = 0;
-            for (let index = 0; index < totalVotes; index++) {
-                let voteJson = votesList[index];
-                voteJson.value == "T" ? reputationScore++ : reputationScore--;
+        if (request) {
+            let votesList = request.vote_list;
+            if (votesList) {
+                let totalVotes = votesList.length;
+                let reputationScore = 0;
+                for (let index = 0; index < totalVotes; index++) {
+                    let voteJson = votesList[index];
+                    voteJson.value == "T" ? reputationScore++ : reputationScore--;
+                }
+                displayVotes(reputationScore, totalVotes);
             }
-            displayVotes(reputationScore, totalVotes);
         }
     }
 );

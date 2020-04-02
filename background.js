@@ -76,8 +76,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 chrome.tabs.onActivated.addListener(function (activeInfo) {
     if (activeInfo) {
         chrome.tabs.get(activeInfo.tabId, function (tab) {
-            tabUrl = tab.url;
-            chrome.tabs.sendMessage(activeInfo.tabId, {tab_url: tabUrl});
+            if (tab) {
+                tabUrl = tab.url;
+                if (tabUrl) {
+                    chrome.tabs.sendMessage(activeInfo.tabId, {tab_url: tabUrl});
+                }
+            }
         });
     }
 });
@@ -85,8 +89,12 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (tabId) {
         chrome.tabs.get(tabId, function (tab) {
-            tabUrl = tab.url;
-            chrome.tabs.sendMessage(tabId, {tab_url: tabUrl});
+            if (tab) {
+                tabUrl = tab.url;
+                if (tabUrl) {
+                    chrome.tabs.sendMessage(tabId, {tab_url: tabUrl});
+                }
+            }
         });
     }
 });
