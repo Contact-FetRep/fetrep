@@ -18,6 +18,13 @@ p{
     text-justify: inter-word;
     font-size: 130%;
 }
+a{
+    color: #FFFFFF;
+    text-align: justify;
+    text-justify: inter-word;
+    font-style: italic;
+}
+
 .bottom_page{
     text-align: center;
     padding-top: 5rem;

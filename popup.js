@@ -16,6 +16,8 @@ function displayVotes(reputationScore, totalVotes) {
     document.getElementById('totalVotesElement').value = totalVotes;
     if (reputationScore < 0) {
         document.getElementById('reputationScoreElement').style.color = '#ff0000';
+    } else {
+        document.getElementById('reputationScoreElement').style.color = '#FFFFFF';
     }
 }
 
