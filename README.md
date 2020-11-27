@@ -20,9 +20,9 @@ It does not allow:
 Please consider the reasons for voting very carefully. This is a social browser extension that only really works if people use it for the right reasons.
 
 Some reasons why it might not be valid to downvote someone:
-*You don't like their pictures: Not everyone is a professional photographer.
-*You don't like their fetishes: It is okay to have preferences (immoral and illegal fetishes are not a preference! If you have to ask if something is immoral or illegal, it probably is...).
-*You don't like their writings: Not everyone has the benefit of a high education, or the same viewpoint as you do.
+* You don't like their pictures: Not everyone is a professional photographer.
+* You don't like their fetishes: It is okay to have preferences (immoral and illegal fetishes are not a preference! If you have to ask if something is immoral or illegal, it probably is...).
+* You don't like their writings: Not everyone has the benefit of a high education, or the same viewpoint as you do.
 
 Some reasons why it might be valid to downvote someone:
 * They have no remorse for consent violations they've committed.
