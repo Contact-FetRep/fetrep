@@ -10,7 +10,7 @@ function makeVote(voteDirection) {
 }
 
 function getVotes() {
-    chrome.runtime.sendMessage({refresh: "T"});
+    chrome.runtime.sendMessage({refresh: true});
 }
 
 function displayVotes(reputationScore, totalVotes) {
@@ -42,7 +42,7 @@ chrome.runtime.onMessage.addListener(
                 let reputationScore = 0;
                 for (let index = 0; index < totalVotes; index++) {
                     let voteJson = votesList[index];
-                    voteJson.value == "T" ? reputationScore++ : reputationScore--;
+                    voteJson.value === "T" ? reputationScore++ : reputationScore--;
                 }
                 displayVotes(reputationScore, totalVotes);
             }

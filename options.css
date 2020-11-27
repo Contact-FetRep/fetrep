@@ -1,44 +1,45 @@
-body{
+body {
     background-color: #252525;
 }
 
-h3{
+h3 {
     color: #cc3300;
     font-size: 170%;
     text-align: center;
 }
 
-h4{
+h4 {
     color: #cc3300;
     font-size: 150%;
 }
 
-h5{
+h5 {
     color: #FFFFFF;
     font-size: 120%;
 }
 
-li{
+li {
     color: #FFFFFF;
     font-size: 130%;
     text-align: justify;
     text-justify: inter-word;
 }
 
-p{
+p {
     color: #FFFFFF;
     text-align: justify;
     text-justify: inter-word;
     font-size: 130%;
 }
-a{
+
+a {
     color: #FFFFFF;
     text-align: justify;
     text-justify: inter-word;
     font-style: italic;
 }
 
-.bottom_page{
+.bottom_page {
     text-align: center;
     padding-top: 5rem;
 }
@@ -54,6 +55,6 @@ a{
     background-color: #252525;
 }
 
-.remark{
+.remark {
     color: #cc3300;
 }

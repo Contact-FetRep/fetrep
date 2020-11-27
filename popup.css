@@ -6,11 +6,12 @@ input {
     display: inline-block;
 
 }
-body{
+
+body {
     background-color: #252525;
 }
 
-label{
+label {
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
@@ -41,14 +42,16 @@ label{
     border-radius: 5px;
 }
 
-.arrow_down:hover {background-color: #ff0000}
+.arrow_down:hover {
+    background-color: #ff0000
+}
 
 .arrow_down:active {
     background-color: #ff0000;
     transform: translateY(2px);
 }
 
-.arrow_up{
+.arrow_up {
     background-color: #009900;
     cursor: pointer;
     outline: none;
@@ -56,14 +59,16 @@ label{
     border-radius: 5px;
 }
 
-.arrow_up:hover {background-color: #23e023}
+.arrow_up:hover {
+    background-color: #23e023
+}
 
 .arrow_up:active {
     background-color: #23e023;
     transform: translateY(2px);
 }
 
-.vote_box{
+.vote_box {
     width: 60px;
     color: #FFFFFF;
     background-color: #000000;

@@ -1,22 +1,56 @@
 'use strict';
 
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
+let voteeRegex = new RegExp('^.*/users/([0-9]+).*$');
 
-        // see if we are on person's profile page
-        let voterElement = document.getElementsByClassName("fl-avatar__link")[0];
-
-        // if we are on pictures/videos/etc page, get by title
-        if (!voterElement) {
-            voterElement = document.querySelector('[title=\"View Profile\"]');
+function getVoterId() {
+    let voterId;
+    for (const scriptElement of document.getElementsByTagName('script')) {
+        for (const scriptElementHtmlLine of scriptElement.innerHTML.split("\n")) {
+            if (scriptElementHtmlLine.includes("FetLife.currentUser.id")) {
+                voterId = scriptElementHtmlLine.match("^\\s*FetLife.currentUser.id\\s+=\\s+(\\d+);\\s*$")[1];
+            } else if (scriptElementHtmlLine.includes("FL.user")) {
+                voterId = scriptElementHtmlLine.match("^.*FL.user.*\"id\":([0-9]+).*$")[1];
+            }
+            if (voterId) {
+                return voterId;
+            }
         }
+    }
+    return voterId;
+}
 
-        // parse the voter's id out
-        let voterIdHref = voterElement.getAttribute("href");
-        let voterRegex = new RegExp('/users/([0-9]+)');
-        let voterId = voterIdHref.match(voterRegex)[1];
-        let voteeIdHref = request.tab_url;
-        let voteeRegex = new RegExp('.*/users/([0-9]+)');
-        let voteeId = voteeIdHref.match(voteeRegex)[1];
-        chrome.runtime.sendMessage({voter_id: voterId, votee_id: voteeId});
-    });
+function getUserId(userString) {
+    try {
+        return userString.match(voteeRegex)[1];
+    } catch (err) {
+        return null;
+    }
+}
+
+function getVoteeId(tabUrl) {
+    let voteeId;
+    if (tabUrl) {
+        voteeId = getUserId(tabUrl);
+    }
+    if (voteeId) {
+        return voteeId
+    }
+    let voteeElement = document.getElementsByClassName("db")[0];
+    if (voteeElement) {
+        let voteeIdHref = voteeElement.getAttribute("href");
+        voteeId = getUserId(voteeIdHref);
+    }
+    return voteeId;
+}
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    try {
+        let voteeId = getVoteeId(request.tab_url);
+        let voterId = getVoterId();
+        // if we have a correctly set voter and votee id send message back to background for processing
+        if (voteeId && voterId) {
+            chrome.runtime.sendMessage({voter_id: voterId, votee_id: voteeId});
+        }
+    } catch (err) {
+    }
+});

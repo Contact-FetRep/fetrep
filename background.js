@@ -9,11 +9,8 @@ function processVotes(votesJson) {
     chrome.runtime.sendMessage(votesJson);
 }
 
-
 function getVotes() {
-    const req = new XMLHttpRequest();
     const getRepUrl = `http://www.fetrep.com/api/vote/${voteeId}/`;
-
     fetch(getRepUrl).then(response => response.json()).then(json => {
         processVotes(json);
     })
@@ -22,9 +19,11 @@ function getVotes() {
 chrome.runtime.onInstalled.addListener(function () {
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
         chrome.declarativeContent.onPageChanged.addRules([{
-            conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: {urlMatches: '^https://fetlife\.com/users/[0-9]+.*$'},
-            })],
+            conditions: [
+                new chrome.declarativeContent.PageStateMatcher({
+                    pageUrl: {hostEquals: 'fetlife.com'},
+                }),
+            ],
             actions: [new chrome.declarativeContent.ShowPageAction()]
         }]);
     });
